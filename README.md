@@ -28,7 +28,7 @@ pre-commit-hooks requires the following to run:
 Add to `.pre-commit-config.yaml` in your git repo:
 
     - repo: https://github.com/jumanjihouse/pre-commit-hooks
-      sha: 1.0.0
+      sha: 1.1.0
       hooks:
         - id: git-check  # Configure in .gitattributes
         - id: git-dirty  # Configure in .gitignore
