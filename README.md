@@ -10,17 +10,9 @@ Git hooks to integrate with [pre-commit](http://pre-commit.com).
 - [Available hooks](#available-hooks)
   * [`git-check`](#git-check)
   * [`git-dirty`](#git-dirty)
+  * [`shellcheck`](#shellcheck)
 - [Contributing](#contributing)
 - [License](#license)
-
-
-## Requirements
-
-pre-commit-hooks requires the following to run:
-
-* [pre-commit](http://pre-commit.com)
-* [git](https://github.com/git/git)
-* A posix shell
 
 
 ## Configure pre-commit
@@ -32,6 +24,7 @@ Add to `.pre-commit-config.yaml` in your git repo:
       hooks:
         - id: git-check  # Configure in .gitattributes
         - id: git-dirty  # Configure in .gitignore
+        - id: shellcheck
 
 
 ## Available hooks
@@ -96,6 +89,24 @@ see if a build step has modified the git tree in unexpected ways.
 
 The recommended place to persist the configuration is the `.gitignore` file,
 described [**here**](https://git-scm.com/docs/gitignore).
+
+
+### `shellcheck`
+
+#### What it does
+
+Run shellcheck against scripts.
+
+#### More info
+
+This hook uses the `file` command to check the mime type of each file.
+If the file is a shell script, then run shellcheck against the file.
+
+### Requirements
+
+* [shellcheck](https://github.com/koalaman/shellcheck)
+* Bash
+* The `file` command
 
 
 ## Contributing
