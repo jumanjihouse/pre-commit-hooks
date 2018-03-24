@@ -6,9 +6,10 @@ fail_fast: false
 
 repos:
   - repo: https://github.com/jumanjihouse/pre-commit-hooks
-    sha: master
+    sha: 1.1.0
     hooks:
       - id: git-check  # Configure in .gitattributes
+      - id: git-dirty  # Configure in .gitignore
 
   - repo: local
     hooks:
