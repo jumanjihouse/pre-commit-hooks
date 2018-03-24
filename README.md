@@ -30,7 +30,7 @@ pre-commit-hooks requires the following to run:
 Add to `.pre-commit-config.yaml` in your git repo:
 
     - repo: https://github.com/jumanjihouse/pre-commit-hooks
-      sha: master
+      sha: 1.0.0
       hooks:
         - id: git-check
 
