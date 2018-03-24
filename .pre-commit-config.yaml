@@ -6,10 +6,11 @@ fail_fast: false
 
 repos:
   - repo: https://github.com/jumanjihouse/pre-commit-hooks
-    sha: 1.1.0
+    sha: 1.2.0
     hooks:
       - id: git-check  # Configure in .gitattributes
       - id: git-dirty  # Configure in .gitignore
+      - id: shellcheck
 
   - repo: local
     hooks:
@@ -37,11 +38,6 @@ repos:
       - id: check-executables-have-shebangs
       - id: check-json
       - id: detect-private-key
-
-  - repo: https://github.com/detailyang/pre-commit-shell
-    sha: 1.0.2
-    hooks:
-      - id: shell-lint
 
   - repo: https://github.com/Lucas-C/pre-commit-hooks
     sha: v1.1.5
