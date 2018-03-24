@@ -11,13 +11,13 @@ repos:
       - id: git-check
 
   - repo: https://github.com/adrienverge/yamllint.git
-    sha: v1.10.0
+    sha: v1.11.0
     hooks:
       - id: yamllint
         args: ['--format', 'parsable', '--strict']
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    sha: v1.2.0
+    sha: v1.2.3
     hooks:
       - id: check-added-large-files
       - id: check-case-conflict
