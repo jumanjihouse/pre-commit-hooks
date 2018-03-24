@@ -32,7 +32,7 @@ Add to `.pre-commit-config.yaml` in your git repo:
     - repo: https://github.com/jumanjihouse/pre-commit-hooks
       sha: 1.0.0
       hooks:
-        - id: git-check
+        - id: git-check  # Configure in .gitattributes
 
 
 ## Available hooks

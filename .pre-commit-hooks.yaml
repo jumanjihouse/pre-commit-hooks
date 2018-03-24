@@ -5,6 +5,7 @@
 
 - id: git-check
   name: Check for conflict markers and core.whitespace errors
-  description: Use git core to check for errors
+  # yamllint disable-line rule:line-length
+  description: Use git to check for conflict markers and core.whitespace errors, respecting .gitattributes
   entry: pre_commit_hooks/git-check.sh
   language: script
