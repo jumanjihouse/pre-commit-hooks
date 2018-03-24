@@ -1,0 +1,37 @@
+---
+# This file configures https://pre-commit.com/
+# to use specific hooks and options.
+
+fail_fast: false
+
+repos:
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    sha: master
+    hooks:
+      - id: git-check
+
+  - repo: https://github.com/adrienverge/yamllint.git
+    sha: v1.10.0
+    hooks:
+      - id: yamllint
+        args: ['--format', 'parsable', '--strict']
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    sha: v1.2.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-json
+      - id: detect-private-key
+
+  - repo: https://github.com/detailyang/pre-commit-shell
+    sha: 1.0.2
+    hooks:
+      - id: shell-lint
+
+  - repo: https://github.com/Lucas-C/pre-commit-hooks
+    sha: v1.1.5
+    hooks:
+      - id: forbid-crlf
+      - id: forbid-tabs
