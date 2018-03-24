@@ -10,6 +10,13 @@ repos:
     hooks:
       - id: git-check
 
+  - repo: local
+    hooks:
+      - id: git-dirty
+        name: git-dirty (local)
+        language: script
+        entry: pre_commit_hooks/git-dirty.sh
+
   - repo: https://github.com/adrienverge/yamllint.git
     sha: v1.11.0
     hooks:

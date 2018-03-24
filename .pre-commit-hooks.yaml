@@ -9,3 +9,9 @@
   description: Use git to check for conflict markers and core.whitespace errors, respecting .gitattributes
   entry: pre_commit_hooks/git-check.sh
   language: script
+
+- id: git-dirty
+  name: Check if the git tree is dirty
+  description: Detect if git tree contains modified, staged, or untracked files
+  entry: pre_commit_hooks/git-dirty.sh
+  language: script

@@ -9,9 +9,7 @@ Git hooks to integrate with [pre-commit](http://pre-commit.com).
 - [Configure pre-commit](#configure-pre-commit)
 - [Available hooks](#available-hooks)
   * [`git-check`](#git-check)
-    + [What it does](#what-it-does)
-    + [More info](#more-info)
-    + [Custom configuration (overrides)](#custom-configuration-overrides)
+  * [`git-dirty`](#git-dirty)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -33,6 +31,7 @@ Add to `.pre-commit-config.yaml` in your git repo:
       sha: 1.0.0
       hooks:
         - id: git-check  # Configure in .gitattributes
+        - id: git-dirty  # Configure in .gitignore
 
 
 ## Available hooks
@@ -79,6 +78,24 @@ It provides fine control over configuration per file path for both
 Real-world examples of `.gitattributes` file to configure overrides per path:
 
 * https://github.com/jumanjihouse/devenv/blob/master/.gitattributes
+
+
+### `git-dirty`
+
+#### What it does
+
+During the pre-commit stage, do nothing.<br/>
+Otherwise, detect whether the git tree contains modified, staged, or untracked files.
+
+#### More info
+
+This is useful to run near the end of a CI process to
+see if a build step has modified the git tree in unexpected ways.
+
+#### Custom configuration (overrides)
+
+The recommended place to persist the configuration is the `.gitignore` file,
+described [**here**](https://git-scm.com/docs/gitignore).
 
 
 ## Contributing
