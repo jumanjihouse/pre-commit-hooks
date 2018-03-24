@@ -8,6 +8,7 @@ Git hooks to integrate with [pre-commit](http://pre-commit.com).
 - [Requirements](#requirements)
 - [Configure pre-commit](#configure-pre-commit)
 - [Available hooks](#available-hooks)
+  * [`forbid-binary`](#forbid-binary)
   * [`git-check`](#git-check)
   * [`git-dirty`](#git-dirty)
   * [`shellcheck`](#shellcheck)
@@ -22,12 +23,31 @@ Add to `.pre-commit-config.yaml` in your git repo:
     - repo: https://github.com/jumanjihouse/pre-commit-hooks
       sha: 1.2.0
       hooks:
+        - id: forbid-binary
         - id: git-check  # Configure in .gitattributes
         - id: git-dirty  # Configure in .gitignore
         - id: shellcheck
 
 
 ## Available hooks
+
+### `forbid-binary`
+
+#### What it does
+
+Prevent binary files from being committed.
+
+#### More info
+
+This hook uses the `file` command to check the mime type of each file.
+If the file is a binary, then fail.
+
+### Requirements
+
+* Bash
+* The `file` command
+* The `stat` command
+
 
 ### `git-check`
 

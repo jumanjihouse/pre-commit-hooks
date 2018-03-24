@@ -3,6 +3,13 @@
 # which hooks are provided by this repo
 # for use by other git repos.
 
+- id: forbid-binary
+  name: Forbid binaries
+  description: Forbid binary files from being committed
+  entry: pre_commit_hooks/forbid-binary.sh
+  language: script
+  additional_dependencies: ['bash', 'file', 'stat']
+
 - id: git-check
   name: Check for conflict markers and core.whitespace errors
   # yamllint disable-line rule:line-length
