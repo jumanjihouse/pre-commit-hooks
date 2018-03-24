@@ -18,6 +18,11 @@ repos:
         language: script
         entry: pre_commit_hooks/git-dirty.sh
 
+      - id: shellcheck
+        name: shellcheck (local)
+        language: script
+        entry: pre_commit_hooks/shellcheck.sh
+
   - repo: https://github.com/adrienverge/yamllint.git
     sha: v1.11.0
     hooks:

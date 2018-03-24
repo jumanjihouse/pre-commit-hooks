@@ -15,3 +15,10 @@
   description: Detect if git tree contains modified, staged, or untracked files
   entry: pre_commit_hooks/git-dirty.sh
   language: script
+
+- id: shellcheck
+  name: Test shell scripts with shellcheck
+  description: Shell scripts (based on mime type) conform to shellcheck
+  entry: pre_commit_hooks/shellcheck.sh
+  language: script
+  additional_dependencies: ['bash', 'file', 'shellcheck']
