@@ -1,0 +1,17 @@
+; This file helps unify code style.
+;
+; Plugins are available for
+; notepad++, emacs, vim, gedit,
+; textmate, visual studio, and more.
+;
+; See http://editorconfig.org for details.
+
+# This file is at the root of the git repo.
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true

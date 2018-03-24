@@ -1,0 +1,27 @@
+######################################################################
+# gitattributes(5) describes the format and usage of this file.
+#
+# References:
+# https://www.kernel.org/pub/software/scm/git/docs/gitattributes.html
+# http://git-scm.com/book/ch7-2.html
+#
+# Note: When more than one pattern matches the path,
+#       a later line overrides an earlier line.
+#
+######################################################################
+
+# By default, all files are text and retain LF endings, even on Windows.
+# https://help.github.com/articles/dealing-with-line-endings
+* text eol=lf
+
+# Image files are binary.
+# "binary" is an alias for "-text -diff".
+*.png binary
+
+# Use built-in patterns to generate smarter diff text.
+# http://urbanautomaton.com/blog/2011/07/28/git-grep-and-language-specific-diffs/
+*.js  diff=java
+*.php diff=php
+*.pl  diff=perl
+*.py  diff=python
+*.rb  diff=ruby
