@@ -1,0 +1,10 @@
+---
+# This file tells https://pre-commit.com/
+# which hooks are provided by this repo
+# for use by other git repos.
+
+- id: git-check
+  name: Check for conflict markers and core.whitespace errors
+  description: Use git core to check for errors
+  entry: pre_commit_hooks/git-check.sh
+  language: script
