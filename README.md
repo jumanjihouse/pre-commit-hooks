@@ -5,7 +5,6 @@ Git hooks to integrate with [pre-commit](http://pre-commit.com).
 
 ## Table of contents
 
-- [Requirements](#requirements)
 - [Configure pre-commit](#configure-pre-commit)
 - [Two ways to invoke pre-commit](#two-ways-to-invoke-pre-commit)
 - [Available hooks](#available-hooks)
@@ -58,11 +57,8 @@ Prevent binary files from being committed.
 This hook uses the `file` command to check the mime type of each file.
 If the file is a binary, then fail.
 
-### Requirements
-
-* Bash
-* The `file` command
-* The `stat` command
+:warning: The `forbid-binary` hook requires Bash, the `file` command,
+and the `stat` command.
 
 
 ### `git-check`
@@ -138,11 +134,8 @@ Run shellcheck against scripts.
 This hook uses the `file` command to check the mime type of each file.
 If the file is a shell script, then run shellcheck against the file.
 
-### Requirements
-
-* [shellcheck](https://github.com/koalaman/shellcheck)
-* Bash
-* The `file` command
+:warning: The `shellcheck` hook requires Bash, the `file` command, and
+[shellcheck](https://github.com/koalaman/shellcheck).
 
 
 ## Contributing
