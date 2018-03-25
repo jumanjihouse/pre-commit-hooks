@@ -1,0 +1,16 @@
+#!/bin/bash
+set -eEu
+set -o pipefail
+
+################################################################################
+# Run the test harness.
+# Invoke from the root of the git repo as "ci/test".
+################################################################################
+
+. ci/bootstrap
+
+main() {
+  :
+}
+
+main

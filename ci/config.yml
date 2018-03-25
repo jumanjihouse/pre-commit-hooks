@@ -1,0 +1,25 @@
+---
+# https://circleci.com/docs/docker
+version: 2
+jobs:
+  build:
+    docker:
+      # https://github.com/jumanjihouse/cci/pulls?q=is%3Apr+is%3Aclosed
+      - image: jumanjiman/cci:20180312T0301-git-74f5e2a
+
+    working_directory: ~/workdir/
+
+    steps:
+      - setup_remote_docker
+
+      - checkout
+
+      - run:
+          name: Bootstrap the local environment
+          command: |
+            ci/bootstrap
+
+      - run:
+          name: Run tests
+          command: |
+            ci/test
