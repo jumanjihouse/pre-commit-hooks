@@ -54,11 +54,9 @@ Prevent binary files from being committed.
 
 #### More info
 
-This hook uses the `file` command to check the mime type of each file.
-If the file is a binary, then fail.
-
-:warning: The `forbid-binary` hook requires Bash, the `file` command,
-and the `stat` command.
+Fail if a file appears to be a [binary filetype](https://pre-commit.com/#filtering-files-with-types).
+Override with an `exclude` regular expression,
+such as the example [**here**](.pre-commit-config.yaml).
 
 
 ### `git-check`

@@ -8,7 +8,7 @@
   description: Forbid binary files from being committed
   entry: pre_commit_hooks/forbid-binary.sh
   language: script
-  additional_dependencies: ['bash', 'file', 'stat']
+  types: ['binary']
 
 - id: git-check
   name: Check for conflict markers and core.whitespace errors

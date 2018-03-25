@@ -9,6 +9,10 @@ repos:
     sha: 1.3.0
     hooks:
       - id: forbid-binary
+        exclude: >
+          (?x)^(
+            ci/fixtures/one-byte-binary
+          )$
       - id: git-check  # Configure in .gitattributes
       - id: git-dirty  # Configure in .gitignore
       - id: shellcheck
@@ -19,6 +23,11 @@ repos:
         name: forbid-binary (local)
         language: script
         entry: pre_commit_hooks/forbid-binary.sh
+        types: ['binary']
+        exclude: >
+          (?x)^(
+            ci/fixtures/one-byte-binary
+          )$
 
       - id: git-dirty
         name: git-dirty (local)
