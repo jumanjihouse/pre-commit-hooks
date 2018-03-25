@@ -10,7 +10,11 @@ set -o pipefail
 . ci/bootstrap
 
 main() {
-  :
+  run_precommit
+}
+
+run_precommit() {
+  pre-commit run --all-files --verbose
 }
 
 main

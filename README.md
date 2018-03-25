@@ -7,12 +7,14 @@ Git hooks to integrate with [pre-commit](http://pre-commit.com).
 
 - [Requirements](#requirements)
 - [Configure pre-commit](#configure-pre-commit)
+- [Two ways to invoke pre-commit](#two-ways-to-invoke-pre-commit)
 - [Available hooks](#available-hooks)
   * [`forbid-binary`](#forbid-binary)
   * [`git-check`](#git-check)
   * [`git-dirty`](#git-dirty)
   * [`shellcheck`](#shellcheck)
 - [Contributing](#contributing)
+- [Testing](#testing)
 - [License](#license)
 
 
@@ -27,6 +29,20 @@ Add to `.pre-commit-config.yaml` in your git repo:
         - id: git-check  # Configure in .gitattributes
         - id: git-dirty  # Configure in .gitignore
         - id: shellcheck
+
+
+## Two ways to invoke pre-commit
+
+If you want to invoke the checks as a git pre-commit hook, run:
+
+    pre-commit install
+
+If you want to run the checks on-demand (outside of git hooks), run:
+
+    pre-commit run --all-files --verbose
+
+The [test harness](TESTING.md) of this git repo uses the second approach
+to run the checks on-demand.
 
 
 ## Available hooks
@@ -132,6 +148,11 @@ If the file is a shell script, then run shellcheck against the file.
 ## Contributing
 
 Please see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+
+## Testing
+
+Please see [TESTING.md](TESTING.md).
 
 
 ## License

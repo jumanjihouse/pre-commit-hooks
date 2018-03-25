@@ -10,7 +10,8 @@ set -o pipefail
 trap finish EXIT
 
 main() {
-  :
+  setup_python_path
+  install_precommit
 }
 
 finish() {
@@ -20,6 +21,21 @@ finish() {
     echo "$0 OK"
   else
     echo "[ERROR] $0 failed with exit status $RC"
+  fi
+}
+
+setup_python_path() {
+  PYTHON_PATH="$(python -c "import site; print(site.USER_BASE)")"
+  readonly PYTHON_PATH
+
+  if ! grep "${PYTHON_PATH}/bin" <(printenv PATH) &> /dev/null; then
+    export PATH="${PATH}:${PYTHON_PATH}/bin"
+  fi
+}
+
+install_precommit() {
+  if ! command -v pre-commit &> /dev/null; then
+    pip install --user -Iv --compile --no-cache-dir pre-commit
   fi
 }
 
