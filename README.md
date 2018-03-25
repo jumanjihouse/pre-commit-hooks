@@ -22,7 +22,7 @@ Git hooks to integrate with [pre-commit](http://pre-commit.com).
 Add to `.pre-commit-config.yaml` in your git repo:
 
     - repo: https://github.com/jumanjihouse/pre-commit-hooks
-      sha: 1.3.0
+      sha: 1.3.1
       hooks:
         - id: forbid-binary
         - id: git-check  # Configure in .gitattributes
