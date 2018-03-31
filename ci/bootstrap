@@ -37,6 +37,8 @@ install_precommit() {
   if ! command -v pre-commit &> /dev/null; then
     pip install --user -Iv --compile --no-cache-dir pre-commit
   fi
+
+  pre-commit install-hooks
 }
 
 main
