@@ -38,6 +38,9 @@ repos:
         name: shellcheck (local)
         language: script
         entry: pre_commit_hooks/shellcheck.sh
+        types: [shell]
+        args: [-e, SC1091]
+        additional_dependencies: [shellcheck]
 
   - repo: https://github.com/adrienverge/yamllint.git
     sha: v1.11.0

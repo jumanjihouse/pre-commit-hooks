@@ -25,7 +25,9 @@
 
 - id: shellcheck
   name: Test shell scripts with shellcheck
-  description: Shell scripts (based on mime type) conform to shellcheck
+  description: Shell scripts conform to shellcheck
   entry: pre_commit_hooks/shellcheck.sh
   language: script
-  additional_dependencies: ['bash', 'file', 'shellcheck']
+  types: [shell]
+  args: [-e, SC1091]
+  additional_dependencies: [shellcheck]

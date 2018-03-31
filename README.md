@@ -129,10 +129,13 @@ Run shellcheck against scripts.
 
 #### More info
 
-This hook uses the `file` command to check the mime type of each file.
+This hook uses the `identify` library of pre-commit to identify shell scripts.
 If the file is a shell script, then run shellcheck against the file.
 
-:warning: The `shellcheck` hook requires Bash, the `file` command, and
+By default, this hooks passes `-e SC1091` to shellcheck.
+Override locally with the `args` parameter in `.pre-commit-config.yaml`.
+
+:warning: The `shellcheck` hook requires
 [shellcheck](https://github.com/koalaman/shellcheck).
 
 

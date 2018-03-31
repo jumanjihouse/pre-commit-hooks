@@ -4,10 +4,8 @@ Test harness
 ## Dependencies
 
 * [`bash`](https://www.gnu.org/software/bash/bash.html)
-* [`file`](http://www.darwinsys.com/file/) command
 * [`git`](https://github.com/git/git)
 * [`pip`](http://www.pip-installer.org) command
-* `stat` command from [coreutils](http://www.gnu.org/software/coreutils/) or [ubase](https://core.suckless.org/ubase)
 
 
 ## How-to
