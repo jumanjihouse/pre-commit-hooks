@@ -22,9 +22,10 @@ Git hooks to integrate with [pre-commit](http://pre-commit.com).
 Add to `.pre-commit-config.yaml` in your git repo:
 
     - repo: https://github.com/jumanjihouse/pre-commit-hooks
-      sha: 1.3.2
+      sha: 1.4.0
       hooks:
         - id: forbid-binary
+        - id: forbid-space-in-indent
         - id: git-check  # Configure in .gitattributes
         - id: git-dirty  # Configure in .gitignore
         - id: shellcheck
@@ -55,6 +56,19 @@ Prevent binary files from being committed.
 #### More info
 
 Fail if a file appears to be a [binary filetype](https://pre-commit.com/#filtering-files-with-types).
+Override with an `exclude` regular expression,
+such as the example [**here**](.pre-commit-config.yaml).
+
+
+### `forbid-space-in-indent`
+
+#### What it does
+
+Prevent files with spaces within indentation from being committed.
+
+#### More info
+
+Fail if a file contains spaces within indentation.
 Override with an `exclude` regular expression,
 such as the example [**here**](.pre-commit-config.yaml).
 

@@ -10,6 +10,12 @@
   language: script
   types: ['binary']
 
+- id: forbid-space-in-indent
+  name: Forbid spaces in indentation
+  description: Forbid spaces in indentation
+  entry: pre_commit_hooks/forbid-space-in-indent.sh
+  language: script
+
 - id: git-check
   name: Check for conflict markers and core.whitespace errors
   # yamllint disable-line rule:line-length

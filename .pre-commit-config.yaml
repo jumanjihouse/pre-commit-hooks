@@ -29,6 +29,12 @@ repos:
             ci/fixtures/one-byte-binary
           )$
 
+      - id: forbid-space-in-indent
+        name: forbid-space-in-indent (local)
+        language: script
+        entry: pre_commit_hooks/forbid-space-in-indent.sh
+        exclude: ^.*$
+
       - id: git-dirty
         name: git-dirty (local)
         language: script
