@@ -5,7 +5,7 @@ jobs:
   build:
     docker:
       # https://github.com/jumanjihouse/cci/pulls?q=is%3Apr+is%3Aclosed
-      - image: jumanjiman/cci:20180312T0301-git-74f5e2a
+      - image: jumanjiman/cci:20180402T1444-git-6289e45
 
     working_directory: ~/workdir/
 
