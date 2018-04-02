@@ -48,6 +48,14 @@ repos:
         args: [-e, SC1091]
         additional_dependencies: [shellcheck]
 
+      - id: shfmt
+        name: shfmt (local)
+        language: script
+        entry: pre_commit_hooks/shfmt.sh
+        types: [shell]
+        args: ['-l', '-i', '2', '-ci']
+        additional_dependencies: [shfmt]
+
   - repo: https://github.com/adrienverge/yamllint.git
     sha: v1.11.0
     hooks:

@@ -37,3 +37,11 @@
   types: [shell]
   args: [-e, SC1091]
   additional_dependencies: [shellcheck]
+
+- id: shfmt
+  name: Check shell style with shfmt
+  language: script
+  entry: pre_commit_hooks/shfmt.sh
+  types: [shell]
+  args: ['-l', '-i', '2', '-ci']
+  additional_dependencies: [shfmt]

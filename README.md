@@ -12,6 +12,7 @@ Git hooks to integrate with [pre-commit](http://pre-commit.com).
   * [`git-check`](#git-check)
   * [`git-dirty`](#git-dirty)
   * [`shellcheck`](#shellcheck)
+  * [`shfmt`](#shfmt)
 - [Contributing](#contributing)
 - [Testing](#testing)
 - [License](#license)
@@ -22,13 +23,14 @@ Git hooks to integrate with [pre-commit](http://pre-commit.com).
 Add to `.pre-commit-config.yaml` in your git repo:
 
     - repo: https://github.com/jumanjihouse/pre-commit-hooks
-      sha: 1.4.0
+      sha: 1.5.0
       hooks:
         - id: forbid-binary
         - id: forbid-space-in-indent
         - id: git-check  # Configure in .gitattributes
         - id: git-dirty  # Configure in .gitignore
         - id: shellcheck
+        - id: shfmt
 
 
 ## Two ways to invoke pre-commit
@@ -151,6 +153,25 @@ Override locally with the `args` parameter in `.pre-commit-config.yaml`.
 
 :warning: The `shellcheck` hook requires
 [shellcheck](https://github.com/koalaman/shellcheck).
+
+
+### `shfmt`
+
+#### What it does
+
+Run `shfmt` against scripts with args.
+
+#### More info
+
+This hook uses the `identify` library of pre-commit to identify shell scripts.
+If the file is a shell script, then run shfmt against the file.
+
+By default, this hooks passes `-l -i 2 -ci` to shfmt to conform to the
+[Google Shell Style Guide](https://google.github.io/styleguide/shell.xml).
+Override locally with the `args` parameter in `.pre-commit-config.yaml`.
+
+:warning: The `shfmt` hook requires
+[shfmt](https://github.com/mvdan/sh/releases).
 
 
 ## Contributing
