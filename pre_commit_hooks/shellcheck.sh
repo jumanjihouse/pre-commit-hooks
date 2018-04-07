@@ -1,6 +1,5 @@
 #!/bin/sh
 set -eu
-set -o pipefail
 
 ################################################################################
 # Ensure shell scripts conform to shellcheck.

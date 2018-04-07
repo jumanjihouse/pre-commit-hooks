@@ -1,6 +1,5 @@
 #!/bin/sh
 set -eu
-set -o pipefail
 
 ################################################################################
 # Detect modified, added, and unstaged files.

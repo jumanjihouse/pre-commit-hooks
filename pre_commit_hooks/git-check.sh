@@ -1,6 +1,5 @@
 #!/bin/sh
 set -eu
-set -o pipefail
 
 EMPTY_COMMIT="$(git hash-object -t tree /dev/null)"
 readonly EMPTY_COMMIT
