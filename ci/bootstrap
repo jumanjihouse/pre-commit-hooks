@@ -18,7 +18,7 @@ finish() {
   declare -ri RC=$?
 
   if [[ $RC -eq 0 ]]; then
-    echo "$0 OK"
+    echo "[PASS] $0 OK"
   else
     echo "[ERROR] $0 failed with exit status $RC"
   fi
@@ -39,6 +39,15 @@ install_precommit() {
   fi
 
   pre-commit install-hooks
+}
+
+info() {
+  echo "[INFO] $*" >&2
+}
+
+run() {
+  echo "[RUN] $*" >&2
+  "$@"
 }
 
 main

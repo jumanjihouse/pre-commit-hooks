@@ -15,17 +15,17 @@ main() {
 }
 
 run_precommit() {
-  echo '[INFO] Run pre-commit against all files' >&2
-  pre-commit run --all-files --verbose
+  info 'Run pre-commit against all files'
+  run pre-commit run --all-files --verbose
 }
 
 try_precommit() {
-  echo '[INFO] Try local hooks that require prereqs' >&2
+  info 'Try local hooks that require prereqs'
   checks='
     fasterer
   '
   for check in ${checks}; do
-    pre-commit try-repo ./ "${check}" --all-files --verbose
+    run pre-commit try-repo ./ "${check}" --all-files --verbose
   done
 }
 
