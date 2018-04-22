@@ -25,3 +25,4 @@
 *.pl  diff=perl
 *.py  diff=python
 *.rb  diff=ruby
+pre_commit_hooks/run-fasterer diff=ruby

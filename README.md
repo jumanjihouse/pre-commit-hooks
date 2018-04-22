@@ -8,6 +8,7 @@ Git hooks to integrate with [pre-commit](http://pre-commit.com).
 - [Configure pre-commit](#configure-pre-commit)
 - [Two ways to invoke pre-commit](#two-ways-to-invoke-pre-commit)
 - [Available hooks](#available-hooks)
+  * [`fasterer`](#fasterer)
   * [`forbid-binary`](#forbid-binary)
   * [`git-check`](#git-check)
   * [`git-dirty`](#git-dirty)
@@ -25,6 +26,7 @@ Add to `.pre-commit-config.yaml` in your git repo:
     - repo: https://github.com/jumanjihouse/pre-commit-hooks
       sha: 1.5.1
       hooks:
+        - id: fasterer
         - id: forbid-binary
         - id: forbid-space-in-indent
         - id: git-check  # Configure in .gitattributes
@@ -48,6 +50,21 @@ to run the checks on-demand.
 
 
 ## Available hooks
+
+### `fasterer`
+
+#### What it does
+
+Suggest ways to improve speed of Ruby code.
+
+#### More info
+
+[`fasterer`](https://github.com/DamirSvrtan/fasterer)
+suggests speed improvements that you can check in detail at the
+[fast-ruby repo](https://github.com/JuanitoFatas/fast-ruby).
+
+**Note:** You should not follow the suggestions blindly.
+
 
 ### `forbid-binary`
 

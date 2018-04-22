@@ -3,6 +3,13 @@
 # which hooks are provided by this repo
 # for use by other git repos.
 
+- id: fasterer
+  name: Suggest speed improvements in Ruby
+  description: Use fasterer to suggest speed improvements in Ruby
+  entry: run-fasterer
+  language: ruby
+  types: ['ruby']
+
 - id: forbid-binary
   name: Forbid binaries
   description: Forbid binary files from being committed

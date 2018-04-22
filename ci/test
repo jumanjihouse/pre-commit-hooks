@@ -11,10 +11,22 @@ set -o pipefail
 
 main() {
   run_precommit
+  try_precommit
 }
 
 run_precommit() {
+  echo '[INFO] Run pre-commit against all files' >&2
   pre-commit run --all-files --verbose
+}
+
+try_precommit() {
+  echo '[INFO] Try local hooks that require prereqs' >&2
+  checks='
+    fasterer
+  '
+  for check in ${checks}; do
+    pre-commit try-repo ./ "${check}" --all-files --verbose
+  done
 }
 
 main
