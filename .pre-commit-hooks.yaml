@@ -36,6 +36,13 @@
   entry: pre_commit_hooks/git-dirty.sh
   language: script
 
+- id: reek
+  name: Find ruby code smells
+  description: Use reek to find ruby code smells
+  entry: run-reek
+  language: ruby
+  types: ['ruby']
+
 - id: shellcheck
   name: Test shell scripts with shellcheck
   description: Shell scripts conform to shellcheck

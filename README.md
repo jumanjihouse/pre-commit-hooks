@@ -12,6 +12,7 @@ Git hooks to integrate with [pre-commit](http://pre-commit.com).
   * [`forbid-binary`](#forbid-binary)
   * [`git-check`](#git-check)
   * [`git-dirty`](#git-dirty)
+  * [`reek`](#reek)
   * [`shellcheck`](#shellcheck)
   * [`shfmt`](#shfmt)
 - [Contributing](#contributing)
@@ -31,6 +32,7 @@ Add to `.pre-commit-config.yaml` in your git repo:
         - id: forbid-space-in-indent
         - id: git-check  # Configure in .gitattributes
         - id: git-dirty  # Configure in .gitignore
+        - id: reek
         - id: shellcheck
         - id: shfmt
 
@@ -152,6 +154,41 @@ see if a build step has modified the git tree in unexpected ways.
 
 The recommended place to persist the configuration is the `.gitignore` file,
 described [**here**](https://git-scm.com/docs/gitignore).
+
+
+### `reek`
+
+#### What it does
+
+Detect code smells in Ruby code.
+
+#### More info
+
+[Reek](https://github.com/troessner/reek)
+is a tool that examines Ruby classes, modules and methods and reports any
+[Code Smells](docs/Code-Smells.md) it finds.
+
+For an excellent introduction to
+[Code Smells](docs/Code-Smells.md) and Reek check out
+[this blog post](https://blog.codeship.com/how-to-find-ruby-code-smells-with-reek/)
+or [that one](https://troessner.svbtle.com/the-latest-and-greatest-additions-to-reek).
+There is also [this talk](https://www.youtube.com/watch?v=pazYe7WRWRU) from
+[RubyConfBY](http://rubyconference.by/)
+(there is also a [slide deck](http://talks.chastell.net/rubyconf-by-lt-2016/)
+if you prefer that).
+
+**Note:** You should not follow the suggestions blindly.
+
+This hook uses the `identify` library of pre-commit to identify ruby scripts.
+If the file is a ruby script, then run reek against the file.
+
+#### Custom configuration (overrides)
+
+The recommended place to persist the configuration is the `.reek` file,
+described [**here**](https://github.com/troessner/reek#configuration-options).
+
+You can also create [in-line comments](https://github.com/troessner/reek#source-code-comments)
+in the source code for individual overrides.
 
 
 ### `shellcheck`

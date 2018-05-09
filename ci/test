@@ -23,6 +23,7 @@ try_precommit() {
   info 'Try local hooks that require prereqs'
   checks='
     fasterer
+    reek
   '
   for check in ${checks}; do
     run pre-commit try-repo ./ "${check}" --all-files --verbose

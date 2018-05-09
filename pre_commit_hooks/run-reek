@@ -1,0 +1,10 @@
+require 'English'
+
+# This wrapper is needed because "reek" always prints output,
+# but pre-commit looks better if there is no output on success.
+output = `reek 2>&1`
+status = $CHILD_STATUS.exitstatus
+puts output if status != 0
+exit status
+
+# vim: ft=ruby
