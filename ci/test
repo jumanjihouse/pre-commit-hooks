@@ -24,6 +24,7 @@ try_precommit() {
   checks='
     fasterer
     reek
+    rubocop
   '
   for check in ${checks}; do
     run pre-commit try-repo ./ "${check}" --all-files --verbose

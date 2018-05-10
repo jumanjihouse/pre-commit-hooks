@@ -13,6 +13,7 @@ Git hooks to integrate with [pre-commit](http://pre-commit.com).
   * [`git-check`](#git-check)
   * [`git-dirty`](#git-dirty)
   * [`reek`](#reek)
+  * [`rubocop`](#rubocop)
   * [`shellcheck`](#shellcheck)
   * [`shfmt`](#shfmt)
 - [Contributing](#contributing)
@@ -33,6 +34,7 @@ Add to `.pre-commit-config.yaml` in your git repo:
         - id: git-check  # Configure in .gitattributes
         - id: git-dirty  # Configure in .gitignore
         - id: reek
+        - id: rubocop
         - id: shellcheck
         - id: shfmt
 
@@ -189,6 +191,29 @@ described [**here**](https://github.com/troessner/reek#configuration-options).
 
 You can also create [in-line comments](https://github.com/troessner/reek#source-code-comments)
 in the source code for individual overrides.
+
+
+### `rubocop`
+
+#### What it does
+
+RuboCop is a Ruby static code analyzer. Out of the box it
+enforces many of the guidelines outlined in the community
+[Ruby Style Guide](https://github.com/bbatsov/ruby-style-guide).
+
+#### More info
+
+This hook uses the `identify` library of pre-commit to identify ruby scripts.
+If the file is a ruby script, then run rubocop against the file.
+Additionally, run rubocop-rspec against rspec files.
+
+#### Custom configuration (overrides)
+
+Most aspects of rubocop behavior can be tweaked via various
+[configuration options](https://github.com/bbatsov/rubocop/blob/master/config/default.yml).
+
+Rubocop-rspec is documented
+[here](https://github.com/rubocop-rspec/rubocop-rspec).
 
 
 ### `shellcheck`

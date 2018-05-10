@@ -43,6 +43,13 @@
   language: ruby
   types: ['ruby']
 
+- id: rubocop
+  name: Check Ruby style with rubocop and rubocop-rspec
+  description: Enforce Ruby style guide with rubocop and rubocop-rspec
+  entry: run-rubocop
+  language: ruby
+  types: ['ruby']
+
 - id: shellcheck
   name: Test shell scripts with shellcheck
   description: Shell scripts conform to shellcheck

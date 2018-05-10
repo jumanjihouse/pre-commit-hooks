@@ -1,0 +1,10 @@
+require 'English'
+
+# This wrapper is needed because "rubocop" always prints output,
+# but pre-commit looks better if there is no output on success.
+output = `rubocop 2>&1`
+status = $CHILD_STATUS.exitstatus
+puts output if status != 0
+exit status
+
+# vim: ft=ruby
