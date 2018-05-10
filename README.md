@@ -26,7 +26,7 @@ Git hooks to integrate with [pre-commit](http://pre-commit.com).
 Add to `.pre-commit-config.yaml` in your git repo:
 
     - repo: https://github.com/jumanjihouse/pre-commit-hooks
-      sha: 1.6.0
+      sha: 1.7.0
       hooks:
         - id: fasterer
         - id: forbid-binary
