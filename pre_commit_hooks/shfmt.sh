@@ -5,8 +5,8 @@ set -eu
 # Ensure shell scripts conform to style guide.
 ################################################################################
 
-readonly DEBUG=${DEBUG:-0}
-if [ "${DEBUG}" -ne 0 ]; then
+readonly DEBUG=${DEBUG:-unset}
+if [ "${DEBUG}" != unset ]; then
   set -x
 fi
 
