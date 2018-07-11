@@ -6,7 +6,7 @@ fail_fast: false
 
 repos:
   - repo: https://github.com/jumanjihouse/pre-commit-hooks
-    rev: 1.6.0
+    rev: 1.7.1
     hooks:
       - id: forbid-binary
         exclude: >
@@ -63,7 +63,7 @@ repos:
         args: ['--format', 'parsable', '--strict']
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v1.2.3
+    rev: v1.3.0
     hooks:
       - id: check-added-large-files
       - id: check-byte-order-marker
