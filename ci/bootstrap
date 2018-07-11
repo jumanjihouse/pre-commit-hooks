@@ -12,6 +12,8 @@ trap finish EXIT
 main() {
   setup_python_path
   install_precommit
+  add_upstream_git_remote
+  fetch_upstream
 }
 
 finish() {
@@ -48,6 +50,16 @@ info() {
 run() {
   echo "[RUN] $*" >&2
   "$@"
+}
+
+add_upstream_git_remote() {
+  if ! git remote show upstream &>/dev/null; then
+    git remote add upstream https://github.com/jumanjihouse/pre-commit-hooks.git
+  fi
+}
+
+fetch_upstream() {
+  git fetch upstream
 }
 
 main

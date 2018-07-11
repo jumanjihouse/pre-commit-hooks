@@ -77,3 +77,15 @@ repos:
     hooks:
       - id: forbid-crlf
       - id: forbid-tabs
+
+  - repo: https://github.com/jorisroovers/gitlint
+    rev: v0.10.0
+    hooks:
+      - id: gitlint
+        stages: [commit-msg]
+
+      - id: gitlint
+        entry: gitlint --commits upstream/master..
+        exclude: .*
+        always_run: true
+        stages: [manual]

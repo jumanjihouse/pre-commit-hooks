@@ -16,7 +16,7 @@ main() {
 
 run_precommit() {
   info 'Run pre-commit against all files'
-  run pre-commit run --all-files --verbose
+  run pre-commit run --all-files --verbose --hook-stage manual
 }
 
 try_precommit() {
