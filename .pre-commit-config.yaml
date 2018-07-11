@@ -19,6 +19,13 @@ repos:
 
   - repo: local
     hooks:
+      - id: check-mailmap
+        name: Detect if an email address needs to be added to mailmap
+        language: script
+        entry: pre_commit_hooks/check-mailmap
+        always_run: true  # Run on every commit.
+        exclude: .*       # Otherwise runs once per file.
+
       - id: forbid-binary
         name: forbid-binary (local)
         language: script
