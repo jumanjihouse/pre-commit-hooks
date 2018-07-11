@@ -6,7 +6,7 @@ fail_fast: false
 
 repos:
   - repo: https://github.com/jumanjihouse/pre-commit-hooks
-    rev: 1.6.0
+    rev: 1.7.1
     hooks:
       - id: forbid-binary
         exclude: >
@@ -19,6 +19,13 @@ repos:
 
   - repo: local
     hooks:
+      - id: check-mailmap
+        name: Detect if an email address needs to be added to mailmap
+        language: script
+        entry: pre_commit_hooks/check-mailmap
+        always_run: true  # Run on every commit.
+        exclude: .*       # Otherwise runs once per file.
+
       - id: forbid-binary
         name: forbid-binary (local)
         language: script
@@ -63,7 +70,7 @@ repos:
         args: ['--format', 'parsable', '--strict']
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v1.2.3
+    rev: v1.3.0
     hooks:
       - id: check-added-large-files
       - id: check-byte-order-marker
@@ -77,3 +84,15 @@ repos:
     hooks:
       - id: forbid-crlf
       - id: forbid-tabs
+
+  - repo: https://github.com/jorisroovers/gitlint
+    rev: v0.10.0
+    hooks:
+      - id: gitlint
+        stages: [commit-msg]
+
+      - id: gitlint
+        entry: gitlint --commits upstream/master..
+        exclude: .*
+        always_run: true
+        stages: [manual]

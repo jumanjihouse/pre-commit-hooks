@@ -8,6 +8,7 @@ Git hooks to integrate with [pre-commit](http://pre-commit.com).
 - [Configure pre-commit](#configure-pre-commit)
 - [Two ways to invoke pre-commit](#two-ways-to-invoke-pre-commit)
 - [Available hooks](#available-hooks)
+  * [`check-mailmap`](#check-mailmap)
   * [`fasterer`](#fasterer)
   * [`forbid-binary`](#forbid-binary)
   * [`git-check`](#git-check)
@@ -28,6 +29,7 @@ Add to `.pre-commit-config.yaml` in your git repo:
     - repo: https://github.com/jumanjihouse/pre-commit-hooks
       sha: 1.7.1
       hooks:
+        - id: check-mailmap
         - id: fasterer
         - id: forbid-binary
         - id: forbid-space-in-indent
@@ -54,6 +56,49 @@ to run the checks on-demand.
 
 
 ## Available hooks
+
+### `check-mailmap`
+
+#### What it does
+
+Detect botched name/email translations in git history.
+
+`git shortlog -sn` is useful to summarize contributors.
+
+However, it gets muddy when an email address is associated with multiple names.<br/>
+Reasons include:
+
+* the author's full name was messed up
+* not always written the same way
+* the author has multiple email addresses
+
+#### More info
+
+Sample output for good condition:
+
+    $ pre-commit run check-mailmap --all-files --verbose
+    [check-mailmap] Detect if an email address needs to be added to mailmap.......................Passed
+
+
+Sample output for bad condition:
+
+    $ pre-commit run check-mailmap --all-files --verbose
+    [check-mailmap] Detect if an email address needs to be added to mailmap.......................Failed
+    hookid: check-mailmap
+
+    The following email addresses are associated with more than one name:
+
+            billy.bob@example.com
+            jdoe@example.com
+
+    The associations include:
+
+          2 Billy Bob <billy.bob@example.com>
+          2 Bubba <billy.bob@example.com>
+
+         13 John Doe <jdoe@example.com>
+          4 jdoe <jdoe@example.com>
+
 
 ### `fasterer`
 

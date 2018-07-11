@@ -1,0 +1,46 @@
+#!/bin/sh
+if [ -n "${DEBUG}" ]; then
+  set -x
+fi
+
+# Global return code.
+RC=0
+
+main() {
+  check_email
+}
+
+check_email() {
+  # Check if any email address is associated with more than one name.
+  #
+  # Example:
+  #   John Doe <jdoe@example.com>
+  #   jdoe <jdoe@example.com>
+  #
+  # The above example can be fixed by adding these two lines to .mailmap file:
+  #   John Doe <jdoe@example.com> John Doe <jdoe@example.com>
+  #   John Doe <jdoe@example.com> jdoe <jdoe@example.com>
+  #   ^^^^^^^^^^^^^^^^^^^^^^^^^^^ ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  #   How we want it to appear    How it appears in git commit
+  #
+  # See git-shortlog(1) for more details.
+  output="$(! git 2>&1 log --use-mailmap --pretty='%aN %aE' | tr '[:upper:]' '[:lower:]' | sort -u | awk '{print $NF}' | sort | uniq -c | sed -e 's/^[ \t]*//' | grep -v '^1[[:space:]]' | awk '{print $NF}')"
+
+  if [ -n "${output}" ]; then
+    RC=1
+    echo 'The following email addresses are associated with more than one name:'
+    echo
+    for email in ${output}; do
+      echo "        ${email}"
+    done
+    echo
+    echo 'The associations include:'
+    for email in ${output}; do
+      echo
+      git log --pretty='%aN <%aE>' --regexp-ignore-case --author="${email}" | sort | uniq -c
+    done
+  fi
+}
+
+main
+exit ${RC}
