@@ -54,6 +54,7 @@ repos:
         language: python
         types: [text]
         additional_dependencies: [chardet]
+        exclude: ^ci/ansi$  # 3rd-party script
 
       - id: shellcheck
         name: shellcheck (local)

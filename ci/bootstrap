@@ -8,6 +8,7 @@ set -o pipefail
 ################################################################################
 
 trap finish EXIT
+. ci/ansi
 
 main() {
   setup_python_path
@@ -20,9 +21,9 @@ finish() {
   declare -ri RC=$?
 
   if [[ $RC -eq 0 ]]; then
-    echo "[PASS] $0 OK"
+    pass "$0 OK"
   else
-    echo "[ERROR] $0 failed with exit status $RC"
+    err "$0 failed with exit status $RC"
   fi
 }
 
@@ -43,13 +44,23 @@ install_precommit() {
   pre-commit install-hooks
 }
 
+err() {
+  ansi --red --bold --newline "[ERROR] $*" >&2
+}
+
 info() {
-  echo "[INFO] $*" >&2
+  ansi --faint --newline "[INFO] $*" >&2
+}
+
+pass() {
+  ansi --green --bold --newline "[PASS] $*" >&2
+  echo
 }
 
 run() {
-  echo "[RUN] $*" >&2
+  ansi --yellow --bold --newline "[RUN] $*" >&2
   "$@"
+  echo
 }
 
 add_upstream_git_remote() {
