@@ -10,13 +10,21 @@ set -o pipefail
 . ci/bootstrap
 
 main() {
+  if [[ "${DEBUG:-unset}" == 'unset' ]]; then
+    # Without `--verbose', pre-commit only shows output when status != 0.
+    verbose=''
+  else
+    # With `--verbose', pre-commit shows output regardless of exit status.
+    verbose='--verbose'
+  fi
+
   run_precommit
   try_precommit
 }
 
 run_precommit() {
   info 'Run pre-commit against all files'
-  run pre-commit run --all-files --verbose --hook-stage manual
+  run pre-commit run --all-files "${verbose}" --hook-stage manual
 }
 
 try_precommit() {

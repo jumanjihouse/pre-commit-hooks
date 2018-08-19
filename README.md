@@ -14,6 +14,7 @@ Git hooks to integrate with [pre-commit](http://pre-commit.com).
   * [`git-check`](#git-check)
   * [`git-dirty`](#git-dirty)
   * [`reek`](#reek)
+  * [`require-ascii`](#require-ascii)
   * [`rubocop`](#rubocop)
   * [`shellcheck`](#shellcheck)
   * [`shfmt`](#shfmt)
@@ -36,6 +37,7 @@ Add to `.pre-commit-config.yaml` in your git repo:
         - id: git-check  # Configure in .gitattributes
         - id: git-dirty  # Configure in .gitignore
         - id: reek
+        - id: require-ascii
         - id: rubocop
         - id: shellcheck
         - id: shfmt
@@ -236,6 +238,19 @@ described [**here**](https://github.com/troessner/reek#configuration-options).
 
 You can also create [in-line comments](https://github.com/troessner/reek#source-code-comments)
 in the source code for individual overrides.
+
+
+### `require-ascii`
+
+#### What it does
+
+Requires that text files have ascii-encoding.
+This is useful to detect files that have unicode characters.
+
+#### Custom configuration (overrides)
+
+Use the [built-in overrides](https://pre-commit.com/#pre-commit-configyaml---hooks)
+from the pre-commit framework.
 
 
 ### `rubocop`

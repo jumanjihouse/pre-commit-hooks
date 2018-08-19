@@ -50,6 +50,14 @@
   language: ruby
   types: ['ruby']
 
+- id: require-ascii
+  name: Check file encoding
+  description: Ensure file is ascii-encoded
+  entry: require-ascii.py
+  language: python
+  types: [text]
+  additional_dependencies: [chardet]
+
 - id: rubocop
   name: Check Ruby style with rubocop and rubocop-rspec
   description: Enforce Ruby style guide with rubocop and rubocop-rspec

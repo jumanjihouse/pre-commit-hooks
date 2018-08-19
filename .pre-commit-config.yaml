@@ -47,6 +47,14 @@ repos:
         language: script
         entry: pre_commit_hooks/git-dirty.sh
 
+      - id: require-ascii
+        name: file encoding (local)
+        description: Ensure file is ascii-encoded
+        entry: pre_commit_hooks/require-ascii.py
+        language: python
+        types: [text]
+        additional_dependencies: [chardet]
+
       - id: shellcheck
         name: shellcheck (local)
         language: script
@@ -78,6 +86,7 @@ repos:
       - id: check-executables-have-shebangs
       - id: check-json
       - id: detect-private-key
+      - id: flake8
 
   - repo: https://github.com/Lucas-C/pre-commit-hooks
     rev: v1.1.5
