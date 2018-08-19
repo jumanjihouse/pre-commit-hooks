@@ -15,7 +15,7 @@ for filename in sys.argv:
     dict = chardet.detect(data)
     fh.close
 
-    if dict['encoding'] in ('none', 'ascii'):
+    if dict['encoding'] in (None, 'ascii'):
         result = '[OK]'
     else:
         result = '[ERROR]'
