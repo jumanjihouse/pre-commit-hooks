@@ -27,7 +27,7 @@ main() {
   while IFS= read -r line; do
     files=("${files[@]}" "${line}")
   done < <(git ls-files | grep -vE '^ci/ansi$')
-  run pre-commit try-repo ./ require-ascii --verbose --files "${files[@]}"
+  run pre-commit try-repo "$(pwd)" require-ascii --verbose --files "${files[@]}"
 }
 
 run_precommit() {

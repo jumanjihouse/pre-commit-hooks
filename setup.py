@@ -6,7 +6,15 @@ setup(
     url='https://github.com/jumanjihouse/pre-commit-hooks',
     version='0.0.0',
 
+    packages=[
+        'pre_commit_hooks',
+    ],
+
     install_requires=[
         'chardet',
+    ],
+
+    scripts=[
+        'pre_commit_hooks/require-ascii.py',
     ],
 )
