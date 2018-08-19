@@ -28,7 +28,7 @@ Git hooks to integrate with [pre-commit](http://pre-commit.com).
 Add to `.pre-commit-config.yaml` in your git repo:
 
     - repo: https://github.com/jumanjihouse/pre-commit-hooks
-      sha: 1.9.0
+      sha: 1.9.1
       hooks:
         - id: check-mailmap
         - id: fasterer

@@ -5,6 +5,9 @@ ignore=body-is-missing
 [title-max-length]
 line-length=72
 
+[body-max-line-length]
+line-length=90
+
 [title-must-not-contain-word]
 words=
       abused,abusing,

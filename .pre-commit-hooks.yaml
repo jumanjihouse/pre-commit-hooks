@@ -53,7 +53,7 @@
 - id: require-ascii
   name: Check file encoding
   description: Ensure file is ascii-encoded
-  entry: require-ascii.py
+  entry: pre_commit_hooks/require-ascii.py
   language: python
   types: [text]
   additional_dependencies: [chardet]

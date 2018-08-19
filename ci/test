@@ -20,6 +20,14 @@ main() {
 
   run_precommit
   try_precommit
+
+  # pre-commit does not have a CLI option to exclude files (ci/ansi),
+  # so do this one separate from the rest.
+  declare -a files
+  while IFS= read -r line; do
+    files=("${files[@]}" "${line}")
+  done < <(git ls-files | grep -vE '^ci/ansi$')
+  run pre-commit try-repo ./ require-ascii --verbose --files "${files[@]}"
 }
 
 run_precommit() {
