@@ -29,7 +29,7 @@ repos:
       - id: forbid-binary
         name: forbid-binary (local)
         language: script
-        entry: pre_commit_hooks/forbid-binary.sh
+        entry: pre_commit_hooks/forbid-binary
         types: ['binary']
         exclude: >
           (?x)^(
@@ -39,13 +39,13 @@ repos:
       - id: forbid-space-in-indent
         name: forbid-space-in-indent (local)
         language: script
-        entry: pre_commit_hooks/forbid-space-in-indent.sh
+        entry: pre_commit_hooks/forbid-space-in-indent
         exclude: ^.*$
 
       - id: git-dirty
         name: git-dirty (local)
         language: script
-        entry: pre_commit_hooks/git-dirty.sh
+        entry: pre_commit_hooks/git-dirty
 
       - id: require-ascii
         name: file encoding (local)
@@ -59,7 +59,7 @@ repos:
       - id: shellcheck
         name: shellcheck (local)
         language: script
-        entry: pre_commit_hooks/shellcheck.sh
+        entry: pre_commit_hooks/shellcheck
         types: [shell]
         args: [-e, SC1091]
         additional_dependencies: [shellcheck]
@@ -67,7 +67,7 @@ repos:
       - id: shfmt
         name: shfmt (local)
         language: script
-        entry: pre_commit_hooks/shfmt.sh
+        entry: pre_commit_hooks/shfmt
         types: [shell]
         args: ['-l', '-i', '2', '-ci']
         additional_dependencies: [shfmt]

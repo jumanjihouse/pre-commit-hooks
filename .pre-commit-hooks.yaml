@@ -20,27 +20,27 @@
 - id: forbid-binary
   name: Forbid binaries
   description: Forbid binary files from being committed
-  entry: pre_commit_hooks/forbid-binary.sh
+  entry: pre_commit_hooks/forbid-binary
   language: script
   types: ['binary']
 
 - id: forbid-space-in-indent
   name: Forbid spaces in indentation
   description: Forbid spaces in indentation
-  entry: pre_commit_hooks/forbid-space-in-indent.sh
+  entry: pre_commit_hooks/forbid-space-in-indent
   language: script
 
 - id: git-check
   name: Check for conflict markers and core.whitespace errors
   # yamllint disable-line rule:line-length
   description: Use git to check for conflict markers and core.whitespace errors, respecting .gitattributes
-  entry: pre_commit_hooks/git-check.sh
+  entry: pre_commit_hooks/git-check
   language: script
 
 - id: git-dirty
   name: Check if the git tree is dirty
   description: Detect if git tree contains modified, staged, or untracked files
-  entry: pre_commit_hooks/git-dirty.sh
+  entry: pre_commit_hooks/git-dirty
   language: script
 
 - id: reek
@@ -68,7 +68,7 @@
 - id: shellcheck
   name: Test shell scripts with shellcheck
   description: Shell scripts conform to shellcheck
-  entry: pre_commit_hooks/shellcheck.sh
+  entry: pre_commit_hooks/shellcheck
   language: script
   types: [shell]
   args: [-e, SC1091]
@@ -77,7 +77,7 @@
 - id: shfmt
   name: Check shell style with shfmt
   language: script
-  entry: pre_commit_hooks/shfmt.sh
+  entry: pre_commit_hooks/shfmt
   types: [shell]
   args: ['-l', '-i', '2', '-ci']
   additional_dependencies: [shfmt]
