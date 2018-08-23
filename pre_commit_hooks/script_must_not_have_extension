@@ -1,0 +1,27 @@
+#!/bin/bash
+set -eEu
+set -o pipefail
+
+################################################################################
+# Fail if any shell script filename has an extension.
+#
+# pre-commit uses the "identify" pure python library to detect shell files.
+################################################################################
+
+declare -i RC=0
+
+has_extension() {
+  declare -r filename="$1"
+  [[ "${filename}" =~ \..+$ ]]
+}
+
+for filename in "${@}"; do
+  if has_extension "${filename}"; then
+    echo "[ERROR] ${filename} has an extension but should not"
+    RC=1
+  else
+    echo "[OK]    ${filename}"
+  fi
+done
+
+exit $RC

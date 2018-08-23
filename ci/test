@@ -36,11 +36,13 @@ run_precommit() {
 }
 
 try_precommit() {
-  info 'Try local hooks that require prereqs'
+  info 'Try local hooks'
   checks='
     fasterer
     reek
     rubocop
+    script-must-have-extension
+    script-must-not-have-extension
   '
   for check in ${checks}; do
     run pre-commit try-repo ./ "${check}" --all-files --verbose

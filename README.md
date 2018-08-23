@@ -16,6 +16,8 @@ Git hooks to integrate with [pre-commit](http://pre-commit.com).
   * [`reek`](#reek)
   * [`require-ascii`](#require-ascii)
   * [`rubocop`](#rubocop)
+  * [`script-must-have-extension`](#script-must-have-extension)
+  * [`script-must-not-have-extension`](#script-must-not-have-extension)
   * [`shellcheck`](#shellcheck)
   * [`shfmt`](#shfmt)
 - [Contributing](#contributing)
@@ -39,6 +41,8 @@ Add to `.pre-commit-config.yaml` in your git repo:
         - id: reek
         - id: require-ascii
         - id: rubocop
+        - id: script-must-have-extension
+        - id: script-must-not-have-extension
         - id: shellcheck
         - id: shfmt
 
@@ -274,6 +278,75 @@ Most aspects of rubocop behavior can be tweaked via various
 
 Rubocop-rspec is documented
 [here](https://github.com/rubocop-rspec/rubocop-rspec).
+
+
+### `script-must-have-extension`
+
+The [Google shell style guide](https://google.github.io/styleguide/shell.xml#File_Extensions)
+states:
+
+> Libraries must have a `.sh` extension and should not be executable.
+
+This hook checks for conformance.
+
+#### Default
+
+Filter on files that are both `shell` **and** `non-executable`.
+
+    types: [shell, non-executable]
+
+
+#### Override
+
+Suppose your local style guide is the opposite of the default.<br/>
+In other words, you require **executable** scripts to end with `.sh`.<br/>
+Put this in your `.pre-commit-config.yaml`:
+
+    - repo: https://github.com/jumanjihouse/pre-commit-hooks
+      rev: <version>
+      hooks:
+        - id: script-must-have-extension
+          name: Local policy is to use .sh extension for shell scripts
+          types: [shell, executable]
+
+Note the use of "name" to override the hook's default name and
+provide context for the override.
+
+
+### `script-must-not-have-extension`
+
+The [Google shell style guide](https://google.github.io/styleguide/shell.xml#File_Extensions)
+states:
+
+> Executables should have no extension (strongly preferred)
+
+This hook checks for conformance.
+
+#### Default
+
+Filter on files that are both `shell` **and** `executable`.
+
+    types: [shell, executable]
+
+
+#### Override
+
+You can use this hook to forbid filename extensions on other types of files.<br/>
+Put something like this in your `.pre-commit-config.yaml`:
+
+    - repo: https://github.com/jumanjihouse/pre-commit-hooks
+      rev: <version>
+      hooks:
+        - id: script-must-not-have-extension
+          name: Local policy is to exclude extension from all shell files
+          types: [shell]
+
+        - id: script-must-not-have-extension
+          name: Executable Ruby scripts must not have a file extension
+          types: [ruby, executable]
+
+Note the use of "name" to override the hook's default name and
+provide context for the override.
 
 
 ### `shellcheck`
