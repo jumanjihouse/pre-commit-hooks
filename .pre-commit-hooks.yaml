@@ -75,15 +75,15 @@
   additional_dependencies: [shellcheck]
 
 - id: script-must-have-extension
-  name: Shell script filename ends in .sh
-  description: Shell script filename ends in .sh
+  name: Non-executable shell script filename ends in .sh
+  description: Non-executable shell script filename ends in .sh
   entry: pre_commit_hooks/script_must_have_extension
   language: script
   types: [shell, non-executable]
 
 - id: script-must-not-have-extension
-  name: Shell script filename must not have an extension
-  description: Shell script filename must not have an extension
+  name: Executable shell script omits the filename extension
+  description: Executable shell script omits the filename extension
   entry: pre_commit_hooks/script_must_not_have_extension
   language: script
   types: [shell, executable]
