@@ -4,6 +4,9 @@
 require-ascii
 """
 
+# http://python-future.org/compatible_idioms.html
+from __future__ import print_function
+
 import sys
 import chardet
 
@@ -23,7 +26,7 @@ for filename in sys.argv:
 
     # With `--verbose', pre-commit shows output regardless of exit status.
     # Without `--verbose', pre-commit only shows output when status != 0.
-    print result.ljust(8) + filename.ljust(50),
-    print dict
+    print(result.ljust(8) + filename.ljust(50), end='')
+    print(dict)
 
 exit(status)
