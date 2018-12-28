@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'bigdecimal' # needed by reek
   s.add_dependency 'fasterer', '0.4.1'
   s.add_dependency 'reek', '4.8.1'
-  s.add_dependency 'rubocop', '0.57.1'
-  s.add_dependency 'rubocop-rspec', '1.26.0'
+  s.add_dependency 'rubocop', '0.61.1'
+  s.add_dependency 'rubocop-rspec', '1.30.1'
   s.bindir = 'pre_commit_hooks'
   s.executables = [
     'run-fasterer',
