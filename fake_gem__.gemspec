@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-  s.name = '__fake_gem'
+  s.name = 'fake_gem__'
   s.version = '0.0.0'
   s.authors = ['Paul Morgan']
   s.summary = 'pre-commit hooks for ruby projects'
