@@ -15,12 +15,20 @@ if ! command -v shfmt >/dev/null 2>&1; then
   exit 1
 fi
 
-output="$(shfmt "$@" 2>&1)"
+readonly cmd="shfmt $*"
+echo "[RUN] ${cmd}"
+output="$(${cmd} 2>&1)"
 readonly output
 
 if [ -n "${output}" ]; then
+  echo '[FAIL]'
+  echo
   echo "${output}"
   echo
   echo 'The above files have style errors.'
+  echo 'Use "shfmt -d" option to show diff.'
+  echo 'Use "shfmt -w" option to write (autocorrect).'
   exit 1
+else
+  echo '[PASS]'
 fi
