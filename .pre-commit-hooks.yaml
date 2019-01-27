@@ -43,6 +43,13 @@
   entry: pre_commit_hooks/git-dirty
   language: script
 
+- id: markdownlint
+  name: Check markdown files
+  description: Check markdown files and flag style issues
+  entry: run-mdl
+  language: ruby
+  types: ['markdown']
+
 - id: reek
   name: Find ruby code smells
   description: Use reek to find ruby code smells

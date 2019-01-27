@@ -13,6 +13,7 @@ Git hooks to integrate with [pre-commit](http://pre-commit.com).
   * [`forbid-binary`](#forbid-binary)
   * [`git-check`](#git-check)
   * [`git-dirty`](#git-dirty)
+  * [`markdownlint`](#markdownlint)
   * [`reek`](#reek)
   * [`require-ascii`](#require-ascii)
   * [`rubocop`](#rubocop)
@@ -38,6 +39,7 @@ Add to `.pre-commit-config.yaml` in your git repo:
         - id: forbid-space-in-indent
         - id: git-check  # Configure in .gitattributes
         - id: git-dirty  # Configure in .gitignore
+        - id: markdownlint # Configure in .mdlrc
         - id: reek
         - id: require-ascii
         - id: rubocop
@@ -207,6 +209,23 @@ see if a build step has modified the git tree in unexpected ways.
 
 The recommended place to persist the configuration is the `.gitignore` file,
 described [**here**](https://git-scm.com/docs/gitignore).
+
+
+### `markdownlint`
+
+**What it does**
+
+Check markdown files and flag style issues.
+
+**More info**
+
+[markdownlint](https://github.com/markdownlint/markdownlint)
+is a ruby tool that examines markdown files against various
+[style rules](https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md).
+
+**Custom configuration (overrides)**
+
+Provide `.mdlrc` in the top-level of your project git repo.
 
 
 ### `reek`
