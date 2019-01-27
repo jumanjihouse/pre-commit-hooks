@@ -1,0 +1,16 @@
+require 'English'
+
+# NOTE: pre-commit framework only prints output if:
+# * exit-status is non-zero, or
+# * CLI uses `--verbose`
+
+args = ARGV.join(' ')
+puts "args: #{args}"
+puts ''
+
+output = `mdl #{args} 2>&1`
+status = $CHILD_STATUS.exitstatus
+puts output
+
+exit status
+# vim: ft=ruby
