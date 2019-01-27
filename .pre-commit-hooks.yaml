@@ -3,6 +3,15 @@
 # which hooks are provided by this repo
 # for use by other git repos.
 
+- id: bundler-audit
+  name: Patch-level verification for bundler
+  description: Check for vulnerable gem versions and insecure sources
+  entry: run-bundle-audit
+  language: ruby
+  pass_filenames: false
+  files: Gemfile.lock
+  args: [--update]
+
 - id: check-mailmap
   name: Detect if an email address needs to be added to mailmap
   language: script

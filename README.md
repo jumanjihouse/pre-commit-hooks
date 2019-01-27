@@ -8,6 +8,7 @@ Git hooks to integrate with [pre-commit](http://pre-commit.com).
 - [Configure pre-commit](#configure-pre-commit)
 - [Two ways to invoke pre-commit](#two-ways-to-invoke-pre-commit)
 - [Available hooks](#available-hooks)
+  * [`bundler-audit`](#bundler-audit)
   * [`check-mailmap`](#check-mailmap)
   * [`fasterer`](#fasterer)
   * [`forbid-binary`](#forbid-binary)
@@ -33,6 +34,7 @@ Add to `.pre-commit-config.yaml` in your git repo:
     - repo: https://github.com/jumanjihouse/pre-commit-hooks
       sha: 1.10.3
       hooks:
+        - id: bundler-audit
         - id: check-mailmap
         - id: fasterer
         - id: forbid-binary
@@ -64,6 +66,20 @@ to run the checks on-demand.
 
 
 ## Available hooks
+
+### `bundler-audit`
+
+**What it does**
+
+* Checks for vulnerable versions of gems in `Gemfile.lock`.
+* Checks for insecure gem sources (`http://`).
+* Allows ignoring certain advisories that have been manually worked around.
+* Prints advisory information.
+
+**More info**
+
+See https://github.com/rubysec/bundler-audit for details.
+
 
 ### `check-mailmap`
 

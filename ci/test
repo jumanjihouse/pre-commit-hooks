@@ -38,6 +38,7 @@ run_precommit() {
 try_precommit() {
   info 'Try local hooks'
   checks='
+    bundler-audit
     fasterer
     markdownlint
     reek
