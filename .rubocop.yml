@@ -29,3 +29,6 @@ Style/TrailingCommaInArrayLiteral:
 
 Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: comma
+
+Style/WordArray:
+  EnforcedStyle: brackets

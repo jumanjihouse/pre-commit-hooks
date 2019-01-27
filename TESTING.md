@@ -1,5 +1,4 @@
-Test harness
-============
+# Test harness
 
 ## Dependencies
 
