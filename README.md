@@ -16,10 +16,12 @@ Git hooks to integrate with [pre-commit](http://pre-commit.com).
   * [`reek`](#reek)
   * [`require-ascii`](#require-ascii)
   * [`rubocop`](#rubocop)
+  * [`semistandard`](#semistandard)
   * [`script-must-have-extension`](#script-must-have-extension)
   * [`script-must-not-have-extension`](#script-must-not-have-extension)
   * [`shellcheck`](#shellcheck)
   * [`shfmt`](#shfmt)
+  * [`tslint`](#tslint)
 - [Contributing](#contributing)
 - [Testing](#testing)
 - [License](#license)
@@ -280,6 +282,13 @@ Rubocop-rspec is documented
 [here](https://github.com/rubocop-rspec/rubocop-rspec).
 
 
+### `semistandard`
+
+#### What it does
+
+Run [semistandard](https://github.com/standard/semistandard) against javascript files.
+
+
 ### `script-must-have-extension`
 
 The [Google shell style guide](https://google.github.io/styleguide/shell.xml#File_Extensions)
@@ -384,6 +393,13 @@ Override locally with the `args` parameter in `.pre-commit-config.yaml`.
 
 :warning: The `shfmt` hook requires
 [shfmt](https://github.com/mvdan/sh/releases).
+
+
+### `tslint`
+
+#### What it does
+
+Run [tslint](https://github.com/palantir/tslint) against typescript files.
 
 
 ## Contributing

@@ -65,6 +65,15 @@
   language: ruby
   types: ['ruby']
 
+- id: semistandard
+  name: Run `semistandard` on javascript files
+  entry: semistandard
+  language: node
+  files: \.(js|jsx)$
+  args: []
+  additional_dependencies: ['semistandard@13.0.1']
+  minimum_pre_commit_version: 0.7.0
+
 - id: shellcheck
   name: Test shell scripts with shellcheck
   description: Shell scripts conform to shellcheck
@@ -95,3 +104,11 @@
   types: [shell]
   args: ['-l', '-i', '2', '-ci']
   additional_dependencies: [shfmt]
+
+- id: tslint
+  name: Run `tslint` on typescript files
+  entry: tslint
+  language: node
+  files: \.ts$
+  args: []
+  additional_dependencies: ['typescript@3.4.5', 'tslint@5.18.0']
