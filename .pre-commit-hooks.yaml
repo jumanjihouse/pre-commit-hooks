@@ -106,8 +106,7 @@
 
 - id: shfmt
   name: Check shell style with shfmt
-  language: script
-  entry: pre_commit_hooks/shfmt
+  language: docker_image
+  entry: --entrypoint shfmt mvdan/shfmt:v2.6.4 -i 2 -ci
   types: [shell]
-  args: ['-l', '-i', '2', '-ci']
-  additional_dependencies: [shfmt]
+  args: ['-l', '-w']
