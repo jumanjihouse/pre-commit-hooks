@@ -6,7 +6,7 @@ fail_fast: false
 
 repos:
   - repo: https://github.com/jumanjihouse/pre-commit-hooks
-    rev: 1.7.1
+    rev: 1.11.2
     hooks:
       - id: forbid-binary
         exclude: >
@@ -73,13 +73,13 @@ repos:
         additional_dependencies: [shfmt]
 
   - repo: https://github.com/adrienverge/yamllint.git
-    rev: v1.11.1
+    rev: v1.20.0
     hooks:
       - id: yamllint
         args: ['--format', 'parsable', '--strict']
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v1.3.0
+    rev: v2.5.0
     hooks:
       - id: check-added-large-files
       - id: check-byte-order-marker
@@ -90,13 +90,13 @@ repos:
       - id: flake8
 
   - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.1.5
+    rev: v1.1.7
     hooks:
       - id: forbid-crlf
       - id: forbid-tabs
 
   - repo: https://github.com/jorisroovers/gitlint
-    rev: v0.10.0
+    rev: v0.13.1
     hooks:
       - id: gitlint
         stages: [commit-msg]
