@@ -421,8 +421,7 @@ Run `shfmt` against scripts with args.
 This hook uses the `identify` library of pre-commit to identify shell scripts.
 If the file is a shell script, then run shfmt against the file.
 
-By default, this hooks passes `-l -ci` to shfmt to conform to the
-[Google Shell Style Guide](https://google.github.io/styleguide/shell.xml).
+By default, this hooks passes only `-l` to `shfmt`.
 Override locally with the `args` parameter in `.pre-commit-config.yaml`.
 
 :bulb: Recent versions of `shfmt` automatically use the indentation
