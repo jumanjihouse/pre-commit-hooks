@@ -32,7 +32,7 @@ Git hooks to integrate with [pre-commit](http://pre-commit.com).
 Add to `.pre-commit-config.yaml` in your git repo:
 
     - repo: https://github.com/jumanjihouse/pre-commit-hooks
-      sha: 1.11.2
+      sha: 1.11.3
       hooks:
         - id: bundler-audit
         - id: check-mailmap
@@ -421,9 +421,12 @@ Run `shfmt` against scripts with args.
 This hook uses the `identify` library of pre-commit to identify shell scripts.
 If the file is a shell script, then run shfmt against the file.
 
-By default, this hooks passes `-l -i 2 -ci` to shfmt to conform to the
+By default, this hooks passes `-l -ci` to shfmt to conform to the
 [Google Shell Style Guide](https://google.github.io/styleguide/shell.xml).
 Override locally with the `args` parameter in `.pre-commit-config.yaml`.
+
+:bulb: Recent versions of `shfmt` automatically use the indentation
+from `.editorconfig` in your git repo.
 
 :warning: The `shfmt` hook requires
 [shfmt](https://github.com/mvdan/sh/releases).
