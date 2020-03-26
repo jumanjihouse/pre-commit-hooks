@@ -109,5 +109,5 @@
   language: script
   entry: pre_commit_hooks/shfmt
   types: [shell]
-  args: ['-l', '-i', '2', '-ci']
+  args: ['-l', '-ci']
   additional_dependencies: [shfmt]
