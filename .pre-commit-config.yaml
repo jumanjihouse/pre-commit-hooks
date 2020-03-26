@@ -69,8 +69,8 @@ repos:
         language: script
         entry: pre_commit_hooks/shfmt
         types: [shell]
-        args: ['-l', '-i', '2', '-ci']
         additional_dependencies: [shfmt]
+        exclude: ci/ansi
 
   - repo: https://github.com/adrienverge/yamllint.git
     rev: v1.11.1

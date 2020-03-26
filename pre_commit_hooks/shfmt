@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -eu
 
 ################################################################################
@@ -15,20 +15,12 @@ if ! command -v shfmt >/dev/null 2>&1; then
   exit 1
 fi
 
-readonly cmd="shfmt $*"
-echo "[RUN] ${cmd}"
-output="$(${cmd} 2>&1)"
-readonly output
-
-if [ -n "${output}" ]; then
-  echo '[FAIL]'
-  echo
-  echo "${output}"
-  echo
-  echo 'The above files have style errors.'
-  echo 'Use "shfmt -d" option to show diff.'
-  echo 'Use "shfmt -w" option to write (autocorrect).'
+version="$(shfmt -version 2>&1)"
+if [[ "${version}" =~ v2 ]]; then
+  echo 'This check needs shfmt v3 or higher from https://github.com/mvdan/sh/releases'
   exit 1
-else
-  echo '[PASS]'
 fi
+
+readonly cmd="shfmt -w $*"
+echo "[RUN] ${cmd}"
+${cmd}

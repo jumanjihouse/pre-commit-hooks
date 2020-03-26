@@ -45,6 +45,7 @@ try_precommit() {
     rubocop
     script-must-have-extension
     script-must-not-have-extension
+    shfmt
   '
   for check in ${checks}; do
     run pre-commit try-repo ./ "${check}" --all-files --verbose

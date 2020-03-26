@@ -29,10 +29,12 @@ Git hooks to integrate with [pre-commit](http://pre-commit.com).
 
 ## Configure pre-commit
 
+:warning: These hooks now require Python3.
+
 Add to `.pre-commit-config.yaml` in your git repo:
 
     - repo: https://github.com/jumanjihouse/pre-commit-hooks
-      sha: 1.11.3
+      rev: 2.0.0
       hooks:
         - id: bundler-audit
         - id: check-mailmap
@@ -414,20 +416,16 @@ Override locally with the `args` parameter in `.pre-commit-config.yaml`.
 
 **What it does**
 
-Run `shfmt` against scripts with args.
+Run `shfmt -w` against scripts with args.
 
 **More info**
 
 This hook uses the `identify` library of pre-commit to identify shell scripts.
 If the file is a shell script, then run shfmt against the file.
 
-By default, this hooks passes only `-l` to `shfmt`.
-Override locally with the `args` parameter in `.pre-commit-config.yaml`.
+Override locally with `.editorconfig`.
 
-:bulb: Recent versions of `shfmt` automatically use the indentation
-from `.editorconfig` in your git repo.
-
-:warning: The `shfmt` hook requires
+:warning: The `shfmt` hook requires a recent version of
 [shfmt](https://github.com/mvdan/sh/releases).
 
 
