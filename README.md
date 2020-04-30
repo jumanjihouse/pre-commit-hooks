@@ -34,7 +34,7 @@ Git hooks to integrate with [pre-commit](http://pre-commit.com).
 Add to `.pre-commit-config.yaml` in your git repo:
 
     - repo: https://github.com/jumanjihouse/pre-commit-hooks
-      rev: 2.0.0
+      rev: master  # or specific git tag
       hooks:
         - id: bundler-audit
         - id: check-mailmap

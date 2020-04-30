@@ -53,7 +53,6 @@ repos:
         entry: pre_commit_hooks/require-ascii.py
         language: python
         types: [text]
-        additional_dependencies: [chardet]
         exclude: ^ci/ansi$  # 3rd-party script
 
       - id: shellcheck
