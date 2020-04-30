@@ -8,25 +8,26 @@ require-ascii
 from __future__ import print_function
 
 import sys
-import chardet
 
 status = 0
 
 for filename in sys.argv:
-    fh = open(filename, 'rb')
-    data = fh.read()
-    dict = chardet.detect(data)
-    fh.close
+    line_num = 0
+    with open(filename, 'r', encoding='UTF-8') as fh:
+        while True:
+            line_num += 1
+            line = fh.readline()
+            if not line:
+                break
 
-    if dict['encoding'] in (None, 'ascii'):
-        result = '[OK]'
-    else:
-        result = '[ERROR]'
-        status = 1
+            col_num = 0
+            for char in line:
+                col_num += 1
+                if ord(char) > 127:
+                    print(
+                        f"{filename}: line {line_num} column {col_num} " +
+                        f"character \"{char}\" (decimal {ord(char)})"
+                        )
+                    status = 1
 
-    # With `--verbose', pre-commit shows output regardless of exit status.
-    # Without `--verbose', pre-commit only shows output when status != 0.
-    print(result.ljust(8) + filename.ljust(50), end='')
-    print(dict)
-
-exit(status)
+sys.exit(status)
