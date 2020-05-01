@@ -10,9 +10,8 @@ set -o pipefail
 
 declare -i RC=0
 
-has_extension() {
-  declare -r filename="$1"
-  [[ "${filename}" =~ \..+$ ]]
+has_sh_extension() {
+  [[ "$(basename "${1}")" != "$(basename "${1}" .sh)" ]]
 }
 
 for filename in "${@}"; do
