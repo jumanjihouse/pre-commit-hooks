@@ -15,7 +15,7 @@ has_sh_extension() {
 }
 
 for filename in "${@}"; do
-  if has_extension "${filename}"; then
+  if has_sh_extension "${filename}"; then
     echo "[ERROR] ${filename} has an extension but should not"
     RC=1
   else
