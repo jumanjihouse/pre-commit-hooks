@@ -319,6 +319,9 @@ Additionally, run rubocop-rspec against rspec files.
 Most aspects of rubocop behavior can be tweaked via various
 [configuration options](https://github.com/bbatsov/rubocop/blob/master/config/default.yml).
 
+Rubocop-performance is documented
+[here](https://github.com/rubocop-hq/rubocop-performance).
+
 Rubocop-rspec is documented
 [here](https://github.com/rubocop-rspec/rubocop-rspec).
 
