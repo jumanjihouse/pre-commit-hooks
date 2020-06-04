@@ -16,7 +16,14 @@ for filename in sys.argv:
     with open(filename, 'r', encoding='UTF-8') as fh:
         while True:
             line_num += 1
-            line = fh.readline()
+            try:
+                # @todo This can probably be enhanced to read byte-by-byte
+                # to report the offending column.
+                line = fh.readline()
+            except UnicodeDecodeError as e:
+                print(f"{filename}: line {line_num} " + str(e))
+                status = 1
+
             if not line:
                 break
 
