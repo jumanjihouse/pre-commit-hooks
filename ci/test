@@ -41,6 +41,7 @@ try_precommit() {
     bundler-audit
     fasterer
     markdownlint
+    protect-first-parent
     reek
     rubocop
     script-must-have-extension

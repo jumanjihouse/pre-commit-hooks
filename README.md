@@ -15,6 +15,7 @@ Git hooks to integrate with [pre-commit](http://pre-commit.com).
   * [`git-check`](#git-check)
   * [`git-dirty`](#git-dirty)
   * [`markdownlint`](#markdownlint)
+  * [`protect-first-parent`](#protect-first-parent)
   * [`reek`](#reek)
   * [`require-ascii`](#require-ascii)
   * [`rubocop`](#rubocop)
@@ -250,6 +251,28 @@ For an annotated example of overrides, see in this project:
 
 * [`.mdlrc`](.mdlrc)
 * [`ci/jumanjistyle.rb`](ci/jumanjistyle.rb)
+
+
+### `protect-first-parent`
+
+**What it does**
+
+Helps to ensure the first-parent sequence of commits on the default branch
+is a true record of commits.
+
+This protection is probably best done as a pre-receive hook. However, central
+git repos like GitHub, GitLab, and so forth do not allow users to configure
+server-side hooks.
+
+This client-side hook fills the gap to help prevent foxtrot merges.
+
+**More info**
+
+- https://en.it1352.com/article/b9ff488428bd49d39f338d421bd1b8f9.html
+- https://bit-booster.blogspot.com/2016/02/no-foxtrots-allowed.html
+- https://devblog.nestoria.com/post/98892582763/maintaining-a-consistent-linear-history-for-git
+- https://dev.to/etcwilde/merge-trees-visualizing-git-repositories
+- https://pdfs.semanticscholar.org/a0e2/e630fc7b5bcf9e86c424a2551d0b76aec53a.pdf
 
 
 ### `reek`

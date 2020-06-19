@@ -59,6 +59,14 @@
   language: ruby
   types: ['markdown']
 
+- id: protect-first-parent
+  name: Protect first parent
+  description: Protect first parent from foxtrot merges
+  entry: pre_commit_hooks/protect-first-parent
+  language: script
+  always_run: true
+  pass_filenames: false
+
 - id: reek
   name: Find ruby code smells
   description: Use reek to find ruby code smells

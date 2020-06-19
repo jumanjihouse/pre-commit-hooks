@@ -1,0 +1,90 @@
+#!/usr/bin/env bash
+set -eEu
+set -o pipefail
+
+################################################################################
+# Protect first-parent within a branch. Detect and fail foxtrot merges.
+#
+# Many examples exist in the wild for a pre-receive hook, but pre-receive hooks
+# are not usable in organizations or gitlab servers that prevent easy access to
+# configure server-side hooks.
+#
+# This script attempts to detect and prohibit foxtrot merges
+# after push and before merge to mainline.
+#
+# Basic reading:
+#
+# - https://en.it1352.com/article/b9ff488428bd49d39f338d421bd1b8f9.html
+# - https://bit-booster.blogspot.com/2016/02/no-foxtrots-allowed.html
+# - https://devblog.nestoria.com/post/98892582763/maintaining-a-consistent-linear-history-for-git
+#
+# Deeper:
+#
+# - https://dev.to/etcwilde/merge-trees-visualizing-git-repositories
+# - https://pdfs.semanticscholar.org/a0e2/e630fc7b5bcf9e86c424a2551d0b76aec53a.pdf
+#
+# Inspirations:
+#
+# - https://github.com/mame/rubyfarmer/blob/master/rubyfarmer.rb
+# - https://github.com/ruby/ruby-commit-hook/pull/19/files
+# - https://github.com/lokku/git-hooks/blob/master/update.keep-first-parent-history.sh
+################################################################################
+# Ensure to never invoke git pager.
+export GIT_PAGER=
+
+# to trap ERR requires BASH, not POSIX shell
+# https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html
+trap 'err $? ${LINENO} "${BASH_SOURCE}" "${BASH_COMMAND}"' ERR
+trap 'finish $?' EXIT
+
+finish() {
+  if [[ "$1" = "0" ]]; then
+    echo "[PASS] $0 OK"
+  else
+    echo
+    echo "[FAIL] See errors above for $0"
+  fi
+}
+
+err() {
+  echo "[ERROR] caught error $1 on line $2 of $3: $4"
+  exit "$1"
+}
+
+# WORK_DIR is optional path to any directory in a git repo.
+WORK_DIR="${WORK_DIR:-.}"
+cd "${WORK_DIR}"
+
+# A reference, such as "origin/stable" or "upstream/stable".
+BASE="$(
+  git rev-parse --abbrev-ref --symbolic-full-name '@{upstream}' 2>/dev/null \
+    || git branch -avv | awk '/->/ {print $NF}' 2>/dev/null \
+    || :
+)"
+readonly BASE
+FIRST_PARENT="$(git show-ref -s "${BASE}")"
+readonly FIRST_PARENT
+
+if [[ "${DEBUG:-unset}" != unset ]]; then
+  echo "BASE: ${BASE}"
+  echo "FIRST_PARENT: ${FIRST_PARENT}"
+fi
+
+if git rev-list --first-parent "${BASE}^".. | grep -q "^${FIRST_PARENT}$"; then
+  exit 0
+fi
+
+cat <<EOF >&2
+[ERROR] Foxtrot merge
+
+Maybe you deleted a commit that was already pushed.
+Maybe you ran "git pull" without the --rebase flag.
+
+A possible fix is to run these commands client-side before pushing:
+
+    git fetch --all
+    git rebase ${BASE}
+
+Check the result with "git log --graph" before pushing again.
+EOF
+exit 1
