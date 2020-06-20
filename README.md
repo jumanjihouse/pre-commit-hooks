@@ -3,29 +3,32 @@
 Git hooks to integrate with [pre-commit](http://pre-commit.com).
 
 
-## Table of contents
+<!--TOC-->
 
 - [Configure pre-commit](#configure-pre-commit)
 - [Two ways to invoke pre-commit](#two-ways-to-invoke-pre-commit)
 - [Available hooks](#available-hooks)
-  * [`bundler-audit`](#bundler-audit)
-  * [`check-mailmap`](#check-mailmap)
-  * [`fasterer`](#fasterer)
-  * [`forbid-binary`](#forbid-binary)
-  * [`git-check`](#git-check)
-  * [`git-dirty`](#git-dirty)
-  * [`markdownlint`](#markdownlint)
-  * [`protect-first-parent`](#protect-first-parent)
-  * [`reek`](#reek)
-  * [`require-ascii`](#require-ascii)
-  * [`rubocop`](#rubocop)
-  * [`script-must-have-extension`](#script-must-have-extension)
-  * [`script-must-not-have-extension`](#script-must-not-have-extension)
-  * [`shellcheck`](#shellcheck)
-  * [`shfmt`](#shfmt)
+  - [`bundler-audit`](#bundler-audit)
+  - [`check-mailmap`](#check-mailmap)
+  - [`fasterer`](#fasterer)
+  - [`forbid-binary`](#forbid-binary)
+  - [`forbid-space-in-indent`](#forbid-space-in-indent)
+  - [`git-check`](#git-check)
+  - [`git-dirty`](#git-dirty)
+  - [`markdownlint`](#markdownlint)
+  - [`protect-first-parent`](#protect-first-parent)
+  - [`reek`](#reek)
+  - [`require-ascii`](#require-ascii)
+  - [`rubocop`](#rubocop)
+  - [`script-must-have-extension`](#script-must-have-extension)
+  - [`script-must-not-have-extension`](#script-must-not-have-extension)
+  - [`shellcheck`](#shellcheck)
+  - [`shfmt`](#shfmt)
 - [Contributing](#contributing)
 - [Testing](#testing)
 - [License](#license)
+
+<!--TOC-->
 
 
 ## Configure pre-commit

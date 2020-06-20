@@ -5,6 +5,12 @@
 fail_fast: false
 
 repos:
+  - repo: https://github.com/frnmst/md-toc
+    rev: 7.0.2
+    hooks:
+      - id: md-toc
+        args: [-p, --skip-lines, '1', commonmarker]
+
   - repo: https://github.com/jumanjihouse/pre-commit-hooks
     rev: 2.1.0
     hooks:
