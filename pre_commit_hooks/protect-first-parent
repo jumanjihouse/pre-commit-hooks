@@ -61,6 +61,10 @@ BASE="$(
     || git branch -avv | awk '/->/ {print $NF}' 2>/dev/null \
     || :
 )"
+if [[ "${BASE:-unset}" == unset ]]; then
+  # Fall back to local branch name.
+  BASE="$(git rev-parse --abbrev-ref HEAD)"
+fi
 readonly BASE
 FIRST_PARENT="$(git show-ref -s "${BASE}")"
 readonly FIRST_PARENT
