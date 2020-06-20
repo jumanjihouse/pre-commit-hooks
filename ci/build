@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -eEu
+set -o pipefail
+
+pre-commit run md-toc --all-files

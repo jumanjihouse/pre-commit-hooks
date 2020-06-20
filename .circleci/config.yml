@@ -5,7 +5,7 @@ jobs:
   build:
     docker:
       # https://github.com/jumanjihouse/cci/pulls?q=is%3Apr+is%3Aclosed
-      - image: jumanjiman/cci:20200604.0031
+      - image: jumanjiman/cci:20200617.2006
 
     working_directory: ~/workdir/
 
@@ -22,4 +22,5 @@ jobs:
       - run:
           name: Run tests
           command: |
+            ci/build
             ci/test
