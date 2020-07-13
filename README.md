@@ -317,7 +317,8 @@ in the source code for individual overrides.
 
 **What it does**
 
-Requires that text files have ascii-encoding.
+Requires that text files have ascii-encoding, including the
+[extended ascii set](https://theasciicode.com.ar/).
 This is useful to detect files that have unicode characters.
 
 **Custom configuration (overrides)**
