@@ -11,6 +11,9 @@ import sys
 
 status = 0
 
+# https://theasciicode.com.ar/
+MAX_ASCII_CODE = 255
+
 for filename in sys.argv:
     line_num = 0
     with open(filename, 'r', encoding='UTF-8') as fh:
@@ -30,7 +33,7 @@ for filename in sys.argv:
             col_num = 0
             for char in line:
                 col_num += 1
-                if ord(char) > 127:
+                if ord(char) > MAX_ASCII_CODE:
                     print(
                         f"{filename}: line {line_num} column {col_num} " +
                         f"character \"{char}\" (decimal {ord(char)})"
