@@ -67,7 +67,6 @@ repos:
         entry: pre_commit_hooks/shellcheck
         types: [shell]
         args: [-e, SC1091]
-        additional_dependencies: [shellcheck]
 
       - id: shfmt
         name: shfmt (local)
