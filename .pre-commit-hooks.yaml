@@ -95,7 +95,6 @@
   language: script
   types: [shell]
   args: [-e, SC1091]
-  additional_dependencies: [shellcheck]
 
 - id: script-must-have-extension
   name: Non-executable shell script filename ends in .sh
