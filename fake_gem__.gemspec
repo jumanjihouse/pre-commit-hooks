@@ -11,8 +11,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'fasterer', '0.8.3'
   s.add_dependency 'mdl', '0.9.0'
   s.add_dependency 'rake' # needed by reek
-  s.add_dependency 'reek', '6.0.1'
-  s.add_dependency 'rubocop', '0.85.1'
+  s.add_dependency 'reek', '6.0.3'
+  s.add_dependency 'rubocop', '1.10.0'
   s.add_dependency 'rubocop-performance', '1.6.1'
   s.add_dependency 'rubocop-rspec', '1.40.0'
   s.bindir = 'pre_commit_hooks'
@@ -23,4 +23,5 @@ Gem::Specification.new do |s|
     'run-reek',
     'run-rubocop',
   ]
+  s.required_ruby_version = '>= 2.5'
 end

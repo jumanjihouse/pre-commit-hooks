@@ -7,6 +7,7 @@ AllCops:
   Exclude:
     - 'modules/**/*'  # Modules are sync'd from outside repo by r10k
     - 'bin/*'         # binstubs from bundle
+  TargetRubyVersion: '2.5'
 
 Metrics/BlockLength:
   Exclude:
