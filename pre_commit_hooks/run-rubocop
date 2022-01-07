@@ -4,7 +4,7 @@ require 'English'
 # but pre-commit looks better if there is no output on success.
 args = ARGV.join(' ')
 puts args if ENV['DEBUG']
-output = `rubocop #{args} 2>&1`
+output = `rubocop --force-exclusion #{args} 2>&1`
 status = $CHILD_STATUS.exitstatus
 puts output if status != 0
 exit status
