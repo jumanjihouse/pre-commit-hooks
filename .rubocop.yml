@@ -1,5 +1,6 @@
 ---
 require:
+  - rubocop-rails
   - rubocop-performance
   - rubocop-rspec
 
@@ -7,7 +8,7 @@ AllCops:
   Exclude:
     - 'modules/**/*'  # Modules are sync'd from outside repo by r10k
     - 'bin/*'         # binstubs from bundle
-  TargetRubyVersion: '2.5'
+  TargetRubyVersion: '2.6'
 
 Metrics/BlockLength:
   Exclude:
