@@ -12,9 +12,10 @@ Gem::Specification.new do |s|
   s.add_dependency 'mdl', '0.9.0'
   s.add_dependency 'rake' # needed by reek
   s.add_dependency 'reek', '6.0.3'
-  s.add_dependency 'rubocop', '1.10.0'
-  s.add_dependency 'rubocop-performance', '1.6.1'
-  s.add_dependency 'rubocop-rspec', '1.40.0'
+  s.add_dependency 'rubocop', '~> 1.25.0'
+  s.add_dependency 'rubocop-performance', '~> 1.13.1'
+  s.add_dependency 'rubocop-rspec', '~> 2.6.0'
+  s.add_dependency 'rubocop-rails', '~> 2.13.0'
   s.bindir = 'pre_commit_hooks'
   s.executables = [
     'run-bundle-audit',
