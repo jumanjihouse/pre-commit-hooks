@@ -8,14 +8,14 @@ Gem::Specification.new do |s|
   s.description = 'pre-commit hooks for ruby projects'
   s.add_dependency 'bigdecimal' # needed by reek
   s.add_dependency 'bundler-audit'
-  s.add_dependency 'fasterer', '0.8.3'
-  s.add_dependency 'mdl', '0.9.0'
+  s.add_dependency 'fasterer', '0.9.0'
+  s.add_dependency 'mdl', '0.11.0'
   s.add_dependency 'rake' # needed by reek
-  s.add_dependency 'reek', '6.0.3'
-  s.add_dependency 'rubocop', '~> 1.25.0'
-  s.add_dependency 'rubocop-performance', '~> 1.13.1'
-  s.add_dependency 'rubocop-rspec', '~> 2.6.0'
-  s.add_dependency 'rubocop-rails', '~> 2.13.0'
+  s.add_dependency 'reek'
+  s.add_dependency 'rubocop'
+  s.add_dependency 'rubocop-performance'
+  s.add_dependency 'rubocop-rspec'
+  s.add_dependency 'rubocop-rails'
   s.bindir = 'pre_commit_hooks'
   s.executables = [
     'run-bundle-audit',
