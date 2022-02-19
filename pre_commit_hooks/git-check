@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 set -eu
 
 EMPTY_COMMIT="$(git hash-object -t tree /dev/null)"
