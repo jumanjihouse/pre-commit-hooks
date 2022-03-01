@@ -14,8 +14,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'reek'
   s.add_dependency 'rubocop'
   s.add_dependency 'rubocop-performance'
-  s.add_dependency 'rubocop-rspec'
   s.add_dependency 'rubocop-rails'
+  s.add_dependency 'rubocop-rspec'
   s.bindir = 'pre_commit_hooks'
   s.executables = [
     'run-bundle-audit',
