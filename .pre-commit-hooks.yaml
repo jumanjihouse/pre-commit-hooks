@@ -94,6 +94,7 @@
   entry: pre_commit_hooks/shellcheck
   language: script
   types: [shell]
+  exclude_types: [zsh]
   args: [-e, SC1091]
 
 - id: script-must-have-extension
@@ -115,3 +116,4 @@
   language: script
   entry: pre_commit_hooks/shfmt
   types: [shell]
+  exclude_types: [zsh]
