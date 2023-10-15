@@ -24,7 +24,7 @@ check_email() {
   #   How we want it to appear    How it appears in git commit
   #
   # See git-shortlog(1) for more details.
-  output="$(! git 2>&1 log --use-mailmap --pretty='%aN %aE' | tr '[:upper:]' '[:lower:]' | sort -u | awk '{print $NF}' | sort | uniq -c | sed -e 's/^[ \t]*//' | grep -v '^1[[:space:]]' | awk '{print $NF}')"
+  output="$(! git 2>&1 -c log.showSignature=false log --use-mailmap --pretty='%aN %aE' | tr '[:upper:]' '[:lower:]' | sort -u | awk '{print $NF}' | sort | uniq -c | sed -e 's/^[ \t]*//' | grep -v '^1[[:space:]]' | awk '{print $NF}')"
 
   if [ -n "${output}" ]; then
     RC=1
@@ -43,4 +43,4 @@ check_email() {
 }
 
 main
-exit ${RC}
+exit "${RC}"
