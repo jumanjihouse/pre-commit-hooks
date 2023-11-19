@@ -92,9 +92,9 @@
   name: Test shell scripts with shellcheck
   description: Shell scripts conform to shellcheck
   entry: pre_commit_hooks/shellcheck
+  exclude_types: [zsh]
   language: script
   types: [shell]
-  args: [-e, SC1091]
 
 - id: script-must-have-extension
   name: Non-executable shell script filename ends in .sh
@@ -115,3 +115,4 @@
   language: script
   entry: pre_commit_hooks/shfmt
   types: [shell]
+  exclude_types: [zsh]
